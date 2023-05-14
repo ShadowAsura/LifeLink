@@ -1,15 +1,15 @@
 const mongo = require('./mongo.js');
 
 let db = mongo.getDb();
-let user_info;
+let users;
 
 db.then((db) => {
 	console.log("Connected to DB");
-  user_info = db.collection("user_info"); 
+  users = db.collection("user_info"); 
 });
 
 async function get_user_info(user_id) {
-  return await user_info.findOne({
+  return await users.findOne({
     user_id
   });
 }
@@ -18,7 +18,7 @@ async function add_user_info(user_info) {
   let info_exists = await get_user_info(user_info.user_id);
   if (info_exists) {
     if (info_exists.password === user_info.password) {
-      await user_info.replaceOne({
+      await users.replaceOne({
         user_id: user_info.user_id
       }, user_info);
       return true;
@@ -26,13 +26,15 @@ async function add_user_info(user_info) {
       return false;
     }
   } else {
-    await user_info.insertOne(user_info);
+    console.log(user_info)
+    console.log(user_info.insertOne)
+    await users.insertOne(user_info);
     return true;
   }
 }
 
 async function delete_user_info(user_id) {
-  await user_info.deleteOne({
+  await users.deleteOne({
     user_id
   });
 }
