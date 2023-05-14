@@ -1,5 +1,6 @@
 <script>
   import { goto } from "$app/navigation";
+    import ListForm from "../lib/components/ListForm.svelte";
 
   let fname = "", lname = "", bio = "";
 
@@ -14,7 +15,7 @@
 
 <div class="flex flex-row justify-center my-10">
   <form on:submit|preventDefault={createId} class="flex flex-col w-96 border rounded p-5 gap-4">
-      <h1 tag="h1" class="mb-4" customSize="text-2xl md:text-3xl lg:text-4xl">
+      <h1 class="text-3xl md:text-3xl lg:text-4xl">
           Create Your ID
       </h1>
 
@@ -30,10 +31,12 @@
 
 
     <div class="row row-col">
-      <label for="bio" class="block">Description:</label>
+      <label for="bio" class="block">Bio:</label>
       <textarea id="bio" name="text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' required
       class="border rounded-sm w-full resize-none p-1" bind:value={bio}></textarea>
     </div>
+
+    <ListForm/>
 
     <button type="submit" class="border rounded-lg py-2 hover:bg-green-600 hover:text-white ease-in-out duration-100">Create</button>
   </form>
