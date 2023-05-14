@@ -26,7 +26,7 @@
 {/each}
 
 <div class="p-2 border rounded">
-  <NameItem bind:name={current_condition}/>
+  <NameItem bind:name={current_condition} name_name={"Condition"}/>
   <input type="button" on:click={addCondition} value="Add Condition"/>
 </div>
 

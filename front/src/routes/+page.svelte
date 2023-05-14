@@ -78,7 +78,7 @@
 
     <label for="password">
       Password:
-      <input name="password" type="text" bind:value={password} class="border-2 rounded w-full p-1" required/>
+      <input name="password" type="password" bind:value={password} class="border-2 rounded w-full p-1" required/>
     </label>
 
     <div class="row row-col">
