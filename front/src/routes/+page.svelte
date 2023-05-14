@@ -6,7 +6,12 @@
   import MedsForm from "../lib/components/MedsForm.svelte";
   import AllergiesForm from "../lib/components/AllergiesForm.svelte";
 
-  let fname = "", lname = "", notes = "", password="";
+  let fname = "", lname = "", notes = "", password="", insurance="";
+  let weight;
+  let height;
+  let age = 0;
+  let sex;
+  let bloodtype;
   let dnr = false;
   let emergencyContacts = [];
   let conditions = [];
@@ -26,7 +31,13 @@
       current_meds,
       allergies,
       dnr,
-      notes
+      notes,
+      insurance,
+      weight,
+      height,
+      sex,
+      age,
+      bloodtype,
     })
     await add_user({
       user_id: uuid,
@@ -78,15 +89,44 @@
 
     <ContactForm bind:emergencyContacts={emergencyContacts}/>
 
+    <label for="sex">
+      Sex:
+      <select bind:value={sex}>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </label>
+
+    <label for="bloodtype">
+      Bloodtype:
+      <input name="insurance" type="text" placeholder="Optional" bind:value={bloodtype} class="border-2 rounded w-full p-1"/>
+    </label>
+
     <ConditionForm bind:conditions={conditions}/>
 
     <MedsForm bind:current_meds={current_meds}/>
 
     <AllergiesForm bind:allergies={allergies}/>
 
-    <label for="dnr">
-      Do not resuscitate:
-      <input id="dnr" type="checkbox" bind:checked={dnr}/>
+    <label for="insurance">
+      Insurance:
+      <input name="insurance" type="text" placeholder="Optional" bind:value={insurance} class="border-2 rounded w-full p-1"/>
+    </label>
+
+    <label for="weight">
+      Weight:
+      <input name="weight" type="number" placeholder="(in pounds)" bind:value={weight} class="border-2 rounded w-full p-1" required/>
+    </label>
+
+    <label for="height">
+      Height:
+      <input name="height" type="number" placeholder="(in inches)" bind:value={height} class="border-2 rounded w-full p-1" required/>
+    </label>
+
+    <label for="age">
+      Age:
+      <input name="age" type="number" placeholder="(in years)" bind:value={age} class="border-2 rounded w-full p-1" required/>
     </label>
 
     <button type="submit" class="border-2 rounded-lg py-2 hover:bg-green-600 hover:text-white ease-in-out duration-100">Create</button>
