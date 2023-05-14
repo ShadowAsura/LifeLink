@@ -1,5 +1,5 @@
 <script>
-
+    import {  Heading, P, A, Mark, Secondary, Input, Label, Helper } from 'flowbite-svelte'
     let fname = "", lname = "", bio = "";
 
     const createId = (e) => {
@@ -7,22 +7,23 @@
         console.log(crypto.randomUUID());
     };
 </script>
+<Heading tag="h1" class="mb-4 flex flex-row justify-center my-10" customSize="text-4xl font-extrabold  md:text-5xl lg:text-6xl">EmergencyID</Heading>
 
 <form on:submit|preventDefault={createId}>
     <div class="flex flex-row justify-center my-10">
         <form on:submit|preventDefault={createId} class="flex flex-col w-96 border rounded p-5 gap-4">
-          <h1 class="text-3xl font-bold">
-            Create Your ID
-          </h1>
+            <Heading tag="h1" class="mb-4" customSize="text-2xl font-extrabold  md:text-3xl lg:text-4xl">
+                Create Your ID
+            </Heading>
       
           <label for="fname">
             First Name:
-            <input name="fname" type="text" bind:value={fname} class="border rounded-sm w-full p-1" required/>
+            <Input name="fname" type="text" bind:value={fname} class="border rounded-sm w-full p-1" required/>
           </label>
 
           <label for="lname">
             Last Name:
-            <input name="lname" type="text" bind:value={lname} class="border rounded-sm w-full p-1" required/>
+            <Input name="lname" type="text" bind:value={lname} class="border rounded-sm w-full p-1" required/>
           </label>
       
       
