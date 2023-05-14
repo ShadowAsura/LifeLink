@@ -7,7 +7,7 @@ export async function load({ params }) {
 		//
 	}
 	return {
-    uuid: params.uuid,
+    	uuid: params.uuid,
 		user_info: resp
 	};
 }

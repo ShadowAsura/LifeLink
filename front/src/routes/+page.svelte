@@ -60,10 +60,10 @@
     }
 </style>
 
-<div class="flex flex-row justify-center py-20">
+<div class="flex flex-row justify-center py-20 px-2">
   <form on:submit|preventDefault={createId} class="flex flex-col w-96 border rounded-lg px-7 py-10 gap-4 bg-slate-50">
       <h1 class="text-3xl md:text-3xl lg:text-4xl">
-          Create Your ID
+          Create Your LifeLink
       </h1>
 
     <label for="fname">
