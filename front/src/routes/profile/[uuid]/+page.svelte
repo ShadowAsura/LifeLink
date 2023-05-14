@@ -1,36 +1,58 @@
 <script>
-    import QRCode from "qrcode";
-    import { onMount } from "svelte";
+    //imports
+    import QRCode from '$lib/components/QRCode.svelte';
 
+    //exports
     export let data;
 
-    // With promises
-    QRCode.toDataURL("I am a pony!")
-        .then((url) => {
-            console.log(url);
-        })
-        .catch((err) => {
-            console.error(err);
-        });
-
-    // With async/await
-    const generateQR = async (text) => {
-        try {
-            console.log(await QRCode.toDataURL(text));
-        } catch (err) {
-            console.error(err);
-        }
-    };
-
-    onMount(() => {
-        QRCode.toCanvas(document.getElementById('canvas'), data.uuid, function (error) {
-            if (error) console.error(error)
-            console.log('success!');
-        })
-    });
-    
+    //get user info
+    const user_info = data.user_info;
 </script>
 
-<div>
-    <canvas id="canvas"></canvas>
+<div id="grid-container">
+    <div>
+        <h1>{ user_info.name }</h1>
+    </div>
+    <div>
+        <div id="qr-container">
+            <QRCode uuid={data.uuid}/>
+        </div>
+    </div>
+    <div>
+        <div>
+            <h2>Emergency contacts</h2>
+        </div>
+    </div>
 </div>
+
+<style>
+    #grid-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 4em;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 2.2em;
+    }
+
+    #qr-container {
+        float: right;
+    }
+
+    @media (max-width: 1250px) {
+        h1 {
+            font-size: 2.5em;
+        }
+
+        h2 {
+            font-size: 1.5em;
+        }
+    }
+</style>

@@ -8,32 +8,6 @@ db.then((db) => {
   user_info = db.collection("user_info"); 
 });
 
-/*user info schema
-{
-  user_id: string uuid,
-  name: string,
-  password: string hashed password,
-  emergency_contacts: [
-    {
-      name: string,
-      phone: string,
-      notes: string
-    }
-    ...
-  ]
-  conditions: string[],
-  allergies: [
-    {
-      name: string,
-      type: string (food or drug)
-    }
-    ...
-  ],
-  current_meds: string[],
-  has_epipen: boolean
-}
-*/
-
 async function get_user_info(user_id) {
   return await user_info.findOne({
     user_id

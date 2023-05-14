@@ -26,6 +26,7 @@ All endpoints return JSON. If error, returned JSON will be `{error: true}`
     ...
   ],
   "conditions": string[],
+  "current_meds": string[],
   "allergies": [
     {
       "name": string,
@@ -33,7 +34,7 @@ All endpoints return JSON. If error, returned JSON will be `{error: true}`
     }
     ...
   ],
-  "current_meds": string[],
-  "has_epipen": boolean
+  "dnr": boolean,
+  "notes": string
 }
 ```
