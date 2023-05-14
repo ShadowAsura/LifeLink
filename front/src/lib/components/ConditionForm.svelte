@@ -35,7 +35,7 @@
     
     <div class="p-2 border rounded">
       <NameItem bind:name={current_condition}/>
-      <button type="button" class="p-1 border-2 rounded-lg w-full transition ease-in-out hover:bg-green-600 hover:text-white" on:click={removeCondition}>Add</button>
+      <button type="button" class="p-1 border-2 rounded-lg w-full transition ease-in-out hover:bg-green-600 hover:text-white" on:click={addCondition}>Add</button>
     </div>
   {/if}
 </div>

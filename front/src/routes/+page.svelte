@@ -30,7 +30,6 @@
       conditions,
       current_meds,
       allergies,
-      dnr,
       notes,
       insurance,
       weight,
@@ -47,8 +46,13 @@
       conditions,
       current_meds,
       allergies,
-      dnr,
-      notes
+      notes,
+      insurance,
+      weight,
+      height,
+      sex,
+      age,
+      bloodtype,
     });
     goto(`/profile/${uuid}/`)
   };

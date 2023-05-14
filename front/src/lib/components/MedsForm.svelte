@@ -21,7 +21,7 @@ let showing = false;
 
 <div>
   <button type="button" class="text-lg border-2 rounded-lg p-2 w-full bg-gradient-to-r from-gray-100 to-pink-300" on:click={() => {showing = !showing;}}>
-    Current Medication
+    Current Medications
   </button>
   {#if showing}
     {#each current_meds as med, i}
