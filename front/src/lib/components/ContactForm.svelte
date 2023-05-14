@@ -22,22 +22,25 @@
         emergencyContacts.splice(num, 1);
         emergencyContacts = emergencyContacts;
     }
+
+    let showing = false;
 </script>
 
-{#each emergencyContacts as contact, i}
+<div>
+  <button type="button" class="text-lg border-2 rounded-lg p-2 w-full bg-gradient-to-r from-gray-100 to-blue-300" on:click={() => {showing = !showing;}}>
+    Emergency Contact
+  </button>
+  {#if showing}
+    {#each emergencyContacts as contact, i}
+        <div class="p-2 border-2 rounded">
+            <ContactItem phone={contact.phone} name={contact.name} note={contact.note}/>
+            <button type="button" class="p-1 border-2 rounded-lg w-full transition ease-in-out hover:bg-red-600 hover:text-white" on:click={() => {removeContact(i)}}>Remove</button>
+        </div>
+    {/each}
+
     <div class="p-2 border rounded">
-        <ContactItem phone={contact.phone} name={contact.name} note={contact.note}/>
-        <input type="button" on:click={() => {removeContact(i)}} value="Remove Contact"/>
+        <ContactItem bind:phone={phone} bind:name={name} bind:note={note}/>
+        <button type="button" class="p-1 border-2 rounded-lg w-full transition ease-in-out hover:bg-green-600 hover:text-white" on:click={addContact}>Add</button>
     </div>
-{/each}
-
-<div class="p-2 border rounded">
-    <ContactItem bind:phone={phone} bind:name={name} bind:note={note}/>
-    <input type="button" on:click={addContact} value="Add Contact"/>
+  {/if}
 </div>
-
-<style>
-    input[type="button"] {
-        cursor: pointer;
-    }
-</style>
