@@ -29,7 +29,6 @@
     {#each conditions as condition, i}
       <div class="p-2 border rounded">
         <NameItem name={condition}/>
-        <input type="button" on:click={() => {removeCondition(i)}} value="Remove Condition"/>
         <button type="button" class="p-1 border-2 rounded-lg w-full transition ease-in-out hover:bg-red-600 hover:text-white" on:click={() => {removeCondition(i)}}>Remove</button>
       </div>
     {/each}
