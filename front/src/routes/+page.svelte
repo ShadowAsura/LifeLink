@@ -14,20 +14,26 @@
   };
 </script>
 
-<div class="flex flex-row justify-center my-10">
-  <form on:submit|preventDefault={createId} class="flex flex-col w-96 border rounded p-5 gap-4">
+<style>
+    form {
+        width: 30rem;
+    }
+</style>
+
+<div class="flex flex-row justify-center py-20">
+  <form on:submit|preventDefault={createId} class="flex flex-col w-96 border rounded-lg px-7 py-10 gap-4 bg-slate-50">
       <h1 class="text-3xl md:text-3xl lg:text-4xl">
           Create Your ID
       </h1>
 
     <label for="fname">
       First Name:
-      <input name="fname" type="text" bind:value={fname} class="border rounded-sm w-full p-1" required/>
+      <input name="fname" type="text" bind:value={fname} class="border-2 rounded w-full p-1" required/>
     </label>
 
     <label for="lname">
       Last Name:
-      <input name="lname" type="text" bind:value={lname} class="border rounded-sm w-full p-1" required/>
+      <input name="lname" type="text" bind:value={lname} class="border-2 rounded w-full p-1" required/>
     </label>
 
 
@@ -39,7 +45,7 @@
 
     <ListForm bind:emergencyContacts={emergencyContacts}/>
 
-    <button type="submit" class="border rounded-lg py-2 hover:bg-green-600 hover:text-white ease-in-out duration-100">Create</button>
+    <button type="submit" class="border-2 rounded-lg py-2 hover:bg-green-600 hover:text-white ease-in-out duration-100">Create</button>
   </form>
 </div>
 

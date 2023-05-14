@@ -9,23 +9,22 @@
     const user_info = data.user_info;
 </script>
 
-<div id="grid-container">
-    <div>
-        <h1>{ user_info.name }</h1>
-    </div>
-    <div>
-        <div id="qr-container">
+<div class="flex flex-row justify-center w-full py-20">
+    <div class="flex flex-col w-96 border rounded-lg px-7 py-10 gap-4 bg-slate-50   ">
+        <h1 class="text-3xl">{user_info.name}</h1>
+
+        <div>
             <QRCode uuid={data.uuid}/>
         </div>
-    </div>
-    <div>
+
         <div>
-            <h2>Emergency contacts</h2>
+            <h2>Emergency Contacts</h2>
+            <!-- {#each } -->
         </div>
     </div>
 </div>
 
-<style>
+<!-- <style>
     #grid-container {
         display: grid;
         grid-template-columns: auto auto;
@@ -55,4 +54,4 @@
             font-size: 1.5em;
         }
     }
-</style>
+</style> -->
