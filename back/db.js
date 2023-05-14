@@ -11,6 +11,7 @@ db.then((db) => {
 /*user info schema
 {
   user_id: string uuid,
+  name: string,
   password: string hashed password,
   emergency_contacts: [
     {

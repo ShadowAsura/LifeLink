@@ -15,6 +15,7 @@ All endpoints return JSON. If error, returned JSON will be `{error: true}`
 ```json
 {
   "user_id": string uuid,
+  "name": string,
   "password": string hashed password,
   "emergency_contacts": [
     {

@@ -12,8 +12,8 @@ app.get("/", (req, res) => {
 
 app.get("/user/:user_id", async (req, res) => {
   let user_info = await db.get_user_info(req.params.user_id);
-  delete user_info.password;
   if (user_info) {
+    delete user_info.password;
     return res.json(user_info);
   } else {
     return res.json({
@@ -57,5 +57,5 @@ app.post("/delete_user", async (req, res) => {
 });
 
 app.listen(1776, () => {
-  console.log(`Example app listening on port 1776`);
+  console.log("app listening on port 1776");
 });
