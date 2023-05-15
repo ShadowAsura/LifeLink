@@ -72,6 +72,13 @@
                 text_width = context.measureText(notes).width;
             }
             context.fillText(notes, 769/2-(text_width/2), 800);
+            document.getElementById("card-download").onclick = () => {
+                let a = document.createElement("a");
+                a.style.display = "none";
+                a.href = document.getElementById("card-canvas").toDataURL();
+                a.download = "health_card.png";
+                a.click();
+            }
         }
 
         card_img.onload = draw_card_canvas;
@@ -109,12 +116,13 @@
         <!-- header -->
         <div class="flex flex-row items-center flex-nowrap">
             <h1 class="text-3xl">{user_info.name}</h1>
-            <div class="ml-auto">
+            <div class="ml-auto flex flex-col justify-center">
                 <QRCode uuid={data.uuid}/>
+                <button class="rounded-lg border-2" id="card-download">Download Card</button>
             </div>
         </div>
 
-        <div class="flex flex-row gap-1">
+        <div class="flex flex-row gap-1 pt-3">
             <span class="border rounded-full px-2 bg-gray-200">
                 {user_info.sex}
             </span>
@@ -189,6 +197,7 @@
                     <div>N/A</div>
                 {/if}
             </div>
+
             
             <div class="flex flex-col">
                 <h2 class="text-xl">Allergies</h2>
@@ -204,13 +213,9 @@
                 {:else}
                     <div>N/A</div>
                 {/if}
-            </div>
-    
-            
+            </div> 
         </div>
     </div>
-
-
-    </div>
+</div>
 
     
