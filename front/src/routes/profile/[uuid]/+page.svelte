@@ -119,19 +119,19 @@
                 {user_info.sex}
             </span>
     
-            <span class="border rounded-full px-2 bg-blue-200">
+            <span class="border rounded-full px-2 bg-teal-100">
                 {user_info.age} yrs old
             </span>
       
-            <span class="border rounded-full px-2 bg-red-200">
+            <span class="border rounded-full px-2 bg-rose-100">
                 Type {user_info.bloodtype}
             </span>
 
-            <span class="border rounded-full px-2 bg-orange-200">
+            <span class="border rounded-full px-2 bg-indigo-100">
                 {user_info.weight} lbs
             </span>
 
-            <span class="border rounded-full px-2 bg-green-200">
+            <span class="border rounded-full px-2 bg-amber-100">
                 {Math.floor(user_info.height / 12)}' {user_info.height % 12}"
             </span>
         </div>
@@ -145,9 +145,9 @@
             <div class="flex flex-col">
                 <h2 class="text-xl">Emergency Contacts</h2>
                 {#if contacts !== undefined}
-                    <div class="flex flex-row pt-2">
+                    <div class="flex flex-row pt-2 gap-1">
                         {#each contacts as contact}
-                        <div class="border-2 p-3 rounded-lg bg-violet-200">
+                        <div class="border-2 p-3 rounded-lg bg-blue-200">
                             {contact.name || ""}<br/>
                             {contact.phone || ""}<br/>
                             {contact.notes || ""}
@@ -163,36 +163,50 @@
             <div class="flex flex-col">
                 <h2 class="text-xl">Medical Conditions</h2>
                 {#if conditions !== undefined}
+                <div class="flex flex-row pt-2 gap-1">
                     {#each conditions as condition}
-                        <div>{condition}</div>
+                    <div class="border-2 p-3 rounded-lg bg-red-200">
+                        {condition || ""}
+                    </div>
                     {/each}
+                </div>
                 {:else}
                     <div>N/A</div>
                 {/if}
             </div>
-    
-            <div class="flex flex-col">
-                <h2 class="text-xl">Allergies</h2>
-                {#if allergies !== undefined}
-                    {#each allergies as allergy}
-                        <div>{allergy.name}</div>
-                        <div>{allergy.note}</div>
-                    {/each}
-                {:else}
-                    <div>N/A</div>
-                {/if}
-            </div>
-    
+
             <div class="flex flex-col">
                 <h2 class="text-xl">Current Medication</h2>
                 {#if meds !== undefined}
+                <div class="flex flex-row pt-2 gap-1">
                     {#each meds as med}
-                        <div>{med}</div>
+                    <div class="border-2 p-3 rounded-lg bg-pink-200">
+                        {med || ""}
+                    </div>
                     {/each}
+                </div>
                 {:else}
                     <div>N/A</div>
                 {/if}
             </div>
+            
+            <div class="flex flex-col">
+                <h2 class="text-xl">Allergies</h2>
+                {#if allergies !== undefined}
+                <div class="flex flex-row pt-2 gap-1">
+                    {#each allergies as allergy}
+                    <div class="border-2 p-3 rounded-lg bg-green-200">
+                        {allergy.name || ""}<br/>
+                        {allergy.note || ""}
+                    </div>
+                    {/each}
+                </div>
+                {:else}
+                    <div>N/A</div>
+                {/if}
+            </div>
+    
+            
         </div>
     </div>
 
