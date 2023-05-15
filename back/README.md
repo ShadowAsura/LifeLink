@@ -21,7 +21,7 @@ All endpoints return JSON. If error, returned JSON will be `{error: true}`
     {
       "name": string,
       "phone": string,
-      "notes": string
+      "note": string
     }
     ...
   ],
@@ -30,11 +30,17 @@ All endpoints return JSON. If error, returned JSON will be `{error: true}`
   "allergies": [
     {
       "name": string,
-      "type": string (food or drug)
+      "note": string (food or drug)
     }
     ...
   ],
   "dnr": boolean,
-  "notes": string
+  "notes": string,
+  "insurance": string,
+  "weight": string,
+  "height": string,
+  "sex": string,
+  "age": string,
+  "bloodtype": string
 }
 ```
