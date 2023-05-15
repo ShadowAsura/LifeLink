@@ -122,7 +122,7 @@
             </div>
         </div>
 
-        <div class="flex flex-row gap-1 pt-3">
+        <div class="flex flex-row gap-1 pt-3 flex-wrap">
             <span class="border rounded-full px-2 bg-gray-200">
                 {user_info.sex}
             </span>
