@@ -72,6 +72,13 @@
                 text_width = context.measureText(notes).width;
             }
             context.fillText(notes, 769/2-(text_width/2), 800);
+            document.getElementById("card-download").onclick = () => {
+                let a = document.createElement("a");
+                a.style.display = "none";
+                a.href = document.getElementById("card-canvas").toDataURL();
+                a.download = "health_card.png";
+                a.click();
+            }
         }
 
         card_img.onload = draw_card_canvas;
@@ -193,6 +200,8 @@
                     <div>N/A</div>
                 {/if}
             </div>
+
+            <button id="card-download">Download Card</button>
         </div>
     </div>
 
