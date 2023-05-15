@@ -104,7 +104,7 @@
 </div>
 
 <div class="flex flex-row justify-center w-full py-20">
-    <div id="card" class="flex flex-col border rounded-lg px-10 py-10 gap-5 bg-slate-50">
+    <div id="card" class="flex flex-col border rounded-lg px-10 py-10 gap-3 bg-slate-50">
         
         <!-- header -->
         <div class="flex flex-row items-center flex-nowrap">
@@ -136,16 +136,25 @@
             </span>
         </div>
 
+        <div>
+            <!-- {healthcare} -->
+        </div>
+
 
         <div class="flex flex-col gap-3">
             <div class="flex flex-col">
                 <h2 class="text-xl">Emergency Contacts</h2>
                 {#if contacts !== undefined}
-                    {#each contacts as contact}
-                        <div>{contact.name}</div>
-                        <div>{contact.phone}</div>
-                        <div>{contact.note}</div>
-                    {/each}
+                    <div class="flex flex-row pt-2">
+                        {#each contacts as contact}
+                        <div class="border-2 p-3 rounded-lg bg-violet-200">
+                            {contact.name || ""}<br/>
+                            {contact.phone || ""}<br/>
+                            {contact.notes || ""}
+                        </div>
+
+                        {/each}
+                    </div>
                 {:else}
                     <div>N/A</div>
                 {/if}

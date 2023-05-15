@@ -6,7 +6,7 @@
   import MedsForm from "$lib/components/MedsForm.svelte";
   import AllergiesForm from "$lib/components/AllergiesForm.svelte";
 
-  let fname = "", lname = "", notes = "", password="", insurance="";
+  let fname = "", lname = "", notes = "", password= "", insurance="";
   let weight;
   let height;
   let age;
@@ -119,10 +119,10 @@
 
     
     
-    <label for="password">
+    <!-- <label for="password">
       Password:
       <input name="password" type="text" bind:value={password} class="border-2 rounded w-full p-1" required/>
-    </label>
+    </label> -->
 
     <label for="insurance">
       Health Insurance Provider:
